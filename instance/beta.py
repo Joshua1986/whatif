@@ -1,0 +1,9 @@
+HOST_URL = "http://domain.com"
+PROJECT_HOME = "D:/git/whatif/"
+HOST = "127.0.0.1"
+PORT = 10011
+DEBUG = True
+TESTING = True
+DATABASE = "root:pwd123456@localhost:3306"
+SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:pwd123456@localhost:3306/whatif?charset=utf8mb4"
+SQLALCHEMY_TRACK_MODIFICATIONS = True
