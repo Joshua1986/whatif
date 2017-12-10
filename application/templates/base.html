@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{% block title %}{% endblock %}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css" media="screen">
+    #show_detail_line {
+        margin-top: 3ex;
+        margin-bottom: 1ex;
+    }
+
+    #result_table {
+        width: 80%;
+        border-collapse: collapse;
+        border: 1px solid #777;
+    }
+
+    #title_row {
+        font-weight: bold;
+        color: white;
+        background-color: #777;
+    }
+
+    #result_table td {
+        border: 1px solid #777;
+        padding: 2px;
+    }
+
+    #total_row {
+        font-weight: bold;
+    }
+
+    .passClass {
+        background-color: #6c6;
+    }
+
+    .failClass {
+        background-color: #c60;
+    }
+
+    .errorClass {
+        background-color: #c00;
+    }
+
+    .passCase {
+        color: #6c6;
+    }
+
+    .failCase {
+        color: #c60;
+        font-weight: bold;
+    }
+
+    .errorCase {
+        color: #c00;
+        font-weight: bold;
+    }
+
+    .hiddenRow {
+        display: none;
+    }
+
+    .testcase {
+        margin-left: 2em;
+    }
+
+</style>
+</head>
+<body>
+<div id="mn" class="col-md-2 well">
+    <div class="container-fluid">
+        <ul id="menu" class="nav nav-pills nav-stacked" style="max-width: 300px;">
+            <li value="menu_item1"><a href="/suite_list.html">可用的测试集</a></li>
+            <li value="menu_item2"><a href="/task.html">任务列表</a></li>
+            <li value="menu_item3"><a href="/tags.html">管理标签</a></li>
+            <li value="menu_item4"><a href="/help.html">帮助</a></li>
+        </ul>
+    </div>
+</div>
+
+<div id="cnt" class="col-md-10 container-fluid">
+    {% block content %}{% endblock %}
+</div>
+
+<script>
+    $(document).ready(function () {
+        if (location.href.indexOf("help.html") > 0) {
+            $('#menu li[value="menu_item4"]').addClass('active');
+            $('#menu li[value="menu_item4"]').attr("class", 'active');
+        }
+        else if (location.href.indexOf("tags.html") != -1) {
+            $('#menu li[value="menu_item3"]').addClass('active');
+            $('#menu li[value="menu_item3"]').attr("class", 'active');
+        }
+        else if ((location.href.indexOf("task.html") != -1) || (location.href.indexOf("case_result.html") != -1)) {
+            $('#menu li[value="menu_item2"]').addClass('active');
+            $('#menu li[value="menu_item2"]').attr("class", 'active');
+        }
+        else {
+            $('#menu li[value="menu_item1"]').addClass('active');
+            $('#menu li[value="menu_item1"]').attr("class", 'active');
+        }
+    });
+</script>
+
+</body>
+</html>

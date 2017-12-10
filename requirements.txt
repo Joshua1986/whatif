@@ -1,0 +1,7 @@
+flask
+requests
+flask_login
+xlrd
+xlutils
+flask_sqlalchemy
+jinja2
